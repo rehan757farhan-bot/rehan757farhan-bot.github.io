@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keto Kitchen UK 🇬🇧</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #d8f3dc;
+    --gold: #d4a017;
+    --cream: #fefae0;
+    --dark: #1b1b1b;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, #1b4332 60%, #081c15 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(64,145,108,0.2) 0%, transparent 70%);
+    bottom: -80px; left: -80px;
+    border-radius: 50%;
+  }
+
+  .flag {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    max-width: 480px;
+    margin: 16px auto 36px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .scroll-hint {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(6px); opacity: 0.8; }
+  }
+
+  /* SECTION STYLES */
+  section {
+    padding: 70px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--green);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  /* CARDS GRID */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(45,106,79,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(45,106,79,0.15);
+    border-color: var(--green-light);
+  }
+
+  .card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 0.88rem;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .card-btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .card-btn:hover {
+    background: var(--green-light);
+  }
+
+  .card-btn.gold {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  .card-btn.gold:hover {
+    background: #c49010;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+    border-radius: 2px;
+  }
+
+  /* BANNER SECTION */
+  .banner-section {
+    background: linear-gradient(135deg, var(--green) 0%, #1b4332 100%);
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .banner-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 12px;
+  }
+
+  .banner-section p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+    font-size: 1rem;
+  }
+
+  .big-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(212,160,23,0.4);
+  }
+
+  .big-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(212,160,23,0.5);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.82rem;
+  }
+
+  footer span {
+    color: var(--gold);
+  }
+
+  /* BACK TO TOP */
+  .top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--green);
+    color: white;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    text-decoration: none;
+    transition: background 0.2s;
+    z-index: 999;
+  }
+
+  .top-btn:hover { background: var(--green-light); }
+
+  /* AFFILIATE NOTICE */
+  .affiliate-notice {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    padding: 14px 20px;
+    border-radius: 0 10px 10px 0;
+    font-size: 0.82rem;
+    color: var(--green);
+    max-width: 900px;
+    margin: 0 auto 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="flag">🇬🇧</div>
+  <h1>Keto <span>Kitchen</span> UK</h1>
+  <p>Daily keto recipes, easy weight loss meal plans & the best kitchen gadgets — handpicked for the UK 🌿</p>
+  <div class="hero-badges">
+    <span class="badge">🍽️ Keto Recipes</span>
+    <span class="badge">🛒 Kitchen Gadgets</span>
+    <span class="badge">💊 Supplements</span>
+    <span class="badge">📖 Meal Plans</span>
+  </div>
+  <div class="scroll-hint">↓ scroll to explore</div>
+</div>
+
+<!-- AFFILIATE NOTICE -->
+<div style="background: var(--cream); padding: 20px 20px 0;">
+  <div class="affiliate-notice">
+    ⚠️ <strong>Affiliate Disclosure:</strong> This page contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.
+  </div>
+</div>
+
+<!-- KETO RECIPES SECTION -->
+<section>
+  <h2 class="section-title">🍳 Keto Recipes & Meal Plans</h2>
+  <p class="section-sub">Easy, delicious & 100% keto-friendly</p>
+  <div class="divider"></div>
+  <div class="cards">
+
+    <a href="YOUR_DIGISTORE_LINK_1" target="_blank" class="card">
+      <div class="card-icon">📖</div>
+      <h3>Complete Keto Meal Plan</h3>
+      <p>28-day UK keto meal plan with shopping list. Lose weight the easy way!</p>
+      <span class="card-btn">Get Plan →</span>
+    </a>
+
+    <a href="YOUR_DIGISTORE_LINK_2" target="_blank" class="card">
+      <div class="card-icon">🥗</div>
+      <h3>Keto Recipe Book UK</h3>
+      <p>100+ keto recipes using UK supermarket ingredients. Family friendly!</p>
+      <span class="card-btn">Get Recipes →</span>
+    </a>
+
+    <a href="YOUR_DIGISTORE_LINK_3" target="_blank" class="card">
+      <div class="card-icon">⚡</div>
+      <h3>7-Day Keto Kickstart</h3>
+      <p>Start your keto journey today. Quick results, simple recipes.</p>
+      <span class="card-btn gold">Start Now →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- KITCHEN GADGETS SECTION -->
+<section style="padding-top: 0;">
+  <h2 class="section-title">🛒 Best Keto Kitchen Gadgets</h2>
+  <p class="section-sub">UK's top picks for your keto kitchen</p>
+  <div class="divider"></div>
+  <div class="cards">
+
+    <a href="YOUR_GADGET_LINK_1" target="_blank" class="card">
+      <div class="card-icon">🌀</div>
+      <h3>Air Fryer</h3>
+      <p>Crispy keto meals with zero oil. Best selling in UK kitchens!</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+    <a href="YOUR_GADGET_LINK_2" target="_blank" class="card">
+      <div class="card-icon">⚖️</div>
+      <h3>Digital Food Scale</h3>
+      <p>Track macros perfectly. Essential for keto success!</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+    <a href="YOUR_GADGET_LINK_3" target="_blank" class="card">
+      <div class="card-icon">🥤</div>
+      <h3>Keto Blender</h3>
+      <p>Perfect for keto smoothies, fat bombs & bulletproof coffee.</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+    <a href="YOUR_GADGET_LINK_4" target="_blank" class="card">
+      <div class="card-icon">🍝</div>
+      <h3>Spiralizer</h3>
+      <p>Turn zucchini into keto noodles! Low carb pasta alternative.</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+    <a href="YOUR_GADGET_LINK_5" target="_blank" class="card">
+      <div class="card-icon">☕</div>
+      <h3>Milk Frother</h3>
+      <p>Thick bulletproof coffee foam at home. Compact & rechargeable.</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+    <a href="YOUR_GADGET_LINK_6" target="_blank" class="card">
+      <div class="card-icon">🫙</div>
+      <h3>Meal Prep Containers</h3>
+      <p>Portion control made easy. Glass containers for keto meal prep.</p>
+      <span class="card-btn">Shop Now →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- SUPPLEMENTS SECTION -->
+<section style="padding-top: 0;">
+  <h2 class="section-title">💊 Keto Supplements</h2>
+  <p class="section-sub">Boost your keto results with UK-approved supplements</p>
+  <div class="divider"></div>
+  <div class="cards">
+
+    <a href="YOUR_SUPPLEMENT_LINK_1" target="_blank" class="card">
+      <div class="card-icon">🔥</div>
+      <h3>Keto Fat Burner</h3>
+      <p>Speed up ketosis & burn fat faster. Trusted by thousands in UK.</p>
+      <span class="card-btn gold">Learn More →</span>
+    </a>
+
+    <a href="YOUR_SUPPLEMENT_LINK_2" target="_blank" class="card">
+      <div class="card-icon">💪</div>
+      <h3>Keto Energy Boost</h3>
+      <p>Fight keto fatigue. Natural energy without sugar or carbs.</p>
+      <span class="card-btn gold">Learn More →</span>
+    </a>
+
+    <a href="YOUR_SUPPLEMENT_LINK_3" target="_blank" class="card">
+      <div class="card-icon">🌿</div>
+      <h3>Electrolyte Mix</h3>
+      <p>Stay hydrated on keto. No cramps, no keto flu!</p>
+      <span class="card-btn gold">Learn More →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="banner-section">
+  <h2>Ready to Start Your Keto Journey? 🚀</h2>
+  <p>Join thousands of UK people losing weight with keto!</p>
+  <a href="YOUR_MAIN_DIGISTORE_LINK" target="_blank" class="big-btn">👉 Get Started Today</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Keto Kitchen UK</span> 🇬🇧 | All affiliate links disclosed | Results may vary</p>
+  <p style="margin-top:8px;">Follow us on <span>Pinterest</span> @larryking73073</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#top" class="top-btn">↑</a>
+
+</body>
+</html>
